@@ -29,7 +29,7 @@ app.use(
 
 app.get('/notes', (req, res) => {
   res.status(200).json({
-    massage: 'Retrieved all notes',
+    message: 'Retrieved all notes',
   });
 });
 
