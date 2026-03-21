@@ -4,12 +4,13 @@ export const noteSchema = new Schema(
   {
     title: {
       type: String,
-      require: true,
+      required: true,
       trim: true,
     },
     content: {
       type: String,
       trim: true,
+      default: '',
     },
     tag: {
       type: String,
@@ -28,7 +29,7 @@ export const noteSchema = new Schema(
       default: 'Todo',
     },
   },
-  { timestamp: true },
+  { timestamps: true },
 );
 
 export const Note = model('Note', noteSchema);
