@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import { TAGS } from '../constants/tags.js';
 
 export const noteSchema = new Schema(
   {
@@ -14,22 +15,20 @@ export const noteSchema = new Schema(
     },
     tag: {
       type: String,
-      enum: [
-        'Work',
-        'Personal',
-        'Meeting',
-        'Shopping',
-        'Ideas',
-        'Travel',
-        'Finance',
-        'Health',
-        'Important',
-        'Todo',
-      ],
+      enum: TAGS,
       default: 'Todo',
     },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+    versionKey: false,
+  },
 );
+
+noteSchema.index({
+  tag: 'text',
+  title: 'text',
+  content: 'text',
+});
 
 export const Note = model('Note', noteSchema);
