@@ -26,7 +26,6 @@ export const noteSchema = new Schema(
 );
 
 noteSchema.index({
-  tag: 'text',
   title: 'text',
   content: 'text',
 });
