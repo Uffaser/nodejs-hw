@@ -6,10 +6,10 @@ export const upload = multer({
     fileSize: 2 * 1024 * 1024,
   },
   fileFilter: (req, file, cb) => {
-    if (!file.mimetype || !file.mimetype.startsWith('images/')) {
-      cb(null, true);
-    } else {
+    if (!file.mimetype || !file.mimetype.startsWith('image/')) {
       cb(new Error('Only images allowed'), false);
+    } else {
+      cb(null, true);
     }
   },
 });
