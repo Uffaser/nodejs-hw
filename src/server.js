@@ -8,6 +8,7 @@ import { errorHandler } from './middleware/errorHandler.js';
 import { logger } from './middleware/logger.js';
 import notesRouter from './routes/notesRoutes.js';
 import authRouter from './routes/authRoutes.js';
+import userRouter from './routes/userRoutes.js';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
 
@@ -21,6 +22,7 @@ app.use(helmet());
 app.use(cookieParser());
 
 app.use(authRouter);
+app.use(userRouter);
 app.use(notesRouter);
 
 app.use(notFoundHandler);
