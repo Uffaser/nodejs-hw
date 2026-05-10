@@ -53,6 +53,8 @@ export const loginUser = async (req, res) => {
 };
 
 export const refreshUserSession = async (req, res) => {
+  console.log(req.cookies);
+
   const session = await Session.findOne({
     _id: req.cookies.sessionId,
     refreshToken: req.cookies.refreshToken,
